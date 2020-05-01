@@ -1,0 +1,19 @@
+{
+  "name": "fp-or",
+  "version": "0.1.0",
+  "description": "OR for js with fp support",
+  "main": "index.js",
+  "author": "Jason Kurian <jgkurian@me.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "jest": "^25.5.3",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
