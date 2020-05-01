@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "OR for js with fp support",
   "main": "index.js",
+  "files": ["index.js"],
   "author": "Jason Kurian <jgkurian@me.com>",
   "license": "MIT",
   "devDependencies": {
