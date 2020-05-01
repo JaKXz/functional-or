@@ -1,9 +1,11 @@
 {
-  "name": "fp-or",
+  "name": "@jakxz/functional-or",
   "version": "0.1.0",
   "description": "OR for js with fp support",
   "main": "index.js",
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "author": "Jason Kurian <jgkurian@me.com>",
   "license": "MIT",
   "devDependencies": {
@@ -16,5 +18,8 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
