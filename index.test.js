@@ -1,23 +1,39 @@
-const functionalOr = require("./");
+const or = require("./");
 
 test("returns a function", () => {
-  expect(functionalOr()).toBeInstanceOf(Function);
+  expect(or()).toBeInstanceOf(Function);
 });
 
 test("accepts data without functions", () => {
-  const subject = functionalOr();
+  const subject = or();
 
   expect(subject(true, false, false, true)).toBe(true);
 });
 
 test("partial application takes functions", () => {
-  const subject = functionalOr(() => true, () => false, () => 0, () => "foo");
+  const subject = or(
+    () => true,
+    () => false,
+    () => 0,
+    () => "foo",
+  );
 
   expect(subject([])).toBe(true);
 });
 
 test("throws when partial application is not given only functions", () => {
-  const subject = functionalOr("test", () => {}, null);
+  const subject = or("test", () => {}, null);
 
   expect(() => subject()).toThrow();
+});
+
+test("does not throw when one of the predicate functions fails for whatever reason", () => {
+  const subject = or(
+    () => {
+      throw new Error("BOOM");
+    },
+    () => false,
+  );
+
+  expect(subject([])).toBe(false);
 });
