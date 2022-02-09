@@ -36,7 +36,7 @@
  * @returns {function(...[*])}
  * @alias module:@jakxz/functional-or
  */
-function functionalOr(...fns) {
+export default function functionalOr(...fns) {
   return (...data) => {
     if (fns.length > 0) {
       for (const fn of fns) {
@@ -58,5 +58,3 @@ function functionalOr(...fns) {
     return data.reduce((acc, val) => acc + !!val, 0) >= 1;
   };
 }
-
-module.exports = functionalOr;

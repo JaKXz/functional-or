@@ -1,13 +1,16 @@
-const or = require("./");
+import { test } from "uvu";
+import * as assert from "uvu/assert";
+
+import or from "./index.js";
 
 test("returns a function", () => {
-  expect(or()).toBeInstanceOf(Function);
+  assert.instance(or(), Function);
 });
 
 test("accepts data without functions", () => {
   const subject = or();
 
-  expect(subject(true, false, false, true)).toBe(true);
+  assert.is(subject(true, false, false, true), true);
 });
 
 test("partial application takes functions", () => {
@@ -15,16 +18,16 @@ test("partial application takes functions", () => {
     () => true,
     () => false,
     () => 0,
-    () => "foo",
+    () => "foo"
   );
 
-  expect(subject([])).toBe(true);
+  assert.is(subject([]), true);
 });
 
 test("throws when partial application is not given only functions", () => {
   const subject = or("test", () => {}, null);
 
-  expect(() => subject()).toThrow();
+  assert.throws(() => subject());
 });
 
 test("does not throw when one of the predicate functions fails for whatever reason", () => {
@@ -32,8 +35,10 @@ test("does not throw when one of the predicate functions fails for whatever reas
     () => {
       throw new Error("BOOM");
     },
-    () => false,
+    () => false
   );
 
-  expect(subject([])).toBe(false);
+  assert.is(subject([]), false);
 });
+
+test.run();

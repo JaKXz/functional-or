@@ -1,7 +1,8 @@
 {
   "name": "@jakxz/functional-or",
   "version": "1.0.0",
-  "description": "OR for js with fp support",
+  "type": "module",
+  "description": "curryable OR for predicate functions",
   "main": "index.js",
   "files": [
     "index.js"
@@ -10,10 +11,10 @@
   "license": "MIT",
   "devDependencies": {
     "husky": "^4.2.5",
-    "jest": "^25.5.3",
     "jsdoc-to-markdown": "^7.0.1",
     "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "uvu": "^0.5.3"
   },
   "husky": {
     "hooks": {
@@ -24,6 +25,6 @@
     "access": "public"
   },
   "scripts": {
-    "test": "jest"
+    "test": "uvu"
   }
 }
