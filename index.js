@@ -39,11 +39,10 @@
 export default function functionalOr(...fns) {
   return (...data) => {
     if (fns.length > 0) {
+      if (!fns.every((fn) => typeof fn === "function")) {
+        throw new Error("the first set of args must be ALL functions.");
+      }
       for (const fn of fns) {
-        if (typeof fn !== "function") {
-          throw new Error("the first set of args must be ALL functions.");
-        }
-
         try {
           if (fn(...data) === true) {
             return true;

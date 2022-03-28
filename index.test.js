@@ -25,7 +25,12 @@ test("partial application takes functions", () => {
 });
 
 test("throws when partial application is not given only functions", () => {
-  const subject = or("test", () => {}, null);
+  const subject = or(
+    () => true,
+    "test",
+    () => {},
+    null
+  );
 
   assert.throws(() => subject());
 });
